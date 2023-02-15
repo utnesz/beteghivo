@@ -8,6 +8,7 @@ import { NextNrScreenComponent } from './common/next-nr-screen/next-nr-screen.co
 import { MainScreenComponent } from './common/main-screen/main-screen.component';
 import { LocalScreenComponent } from './common/local-screen/local-screen.component';
 import { CallerScreenComponent } from './common/caller-screen/caller-screen.component';
+import { HomeScreenComponent } from './page/home-screen/home-screen.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CallerScreenComponent } from './common/caller-screen/caller-screen.comp
     NextNrScreenComponent,
     MainScreenComponent,
     LocalScreenComponent,
-    CallerScreenComponent
+    CallerScreenComponent,
+    HomeScreenComponent
   ],
   imports: [
     BrowserModule,
