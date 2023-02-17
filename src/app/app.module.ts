@@ -22,7 +22,7 @@ import { NavigationComponent } from './common/navigation/navigation.component';
     HomeScreenComponent,
     NavigationComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

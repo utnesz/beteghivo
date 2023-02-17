@@ -1,1 +1,11 @@
-<p>next-nr-screen works!</p>
+<div class="container row col-6">
+  <label for="taj">TAJ szám:</label>
+  <input name="taj" type="text" class="taj rounded" />
+
+  <label type="submit" for="button"
+    >Kérjük vállasszon, milyen vizsgálatra érkezett:</label
+  >
+  <button *ngFor="let room of rooms$ | async" class="btn btn-primary text my-2">
+    {{ room.megnevezes }}
+  </button>
+</div>
