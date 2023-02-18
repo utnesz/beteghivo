@@ -1,5 +1,7 @@
-<div class="container row col-12 mx-auto">
-  <form class="container row col-6 my-5 border rounded-2 p-3 form-group">
+<div class="container-fluid row mx-auto ms-5">
+  <form
+    class="container row col-6 my-5 mx-2 border rounded-2 p-3 form-group h-50"
+  >
     <label for="taj">TAJ szám:</label>
     <input name="taj" type="text" class="taj rounded my-2" />
     <p class="text-end" style="font-size: 0.8rem">
@@ -7,37 +9,53 @@
     </p>
 
     <label type="submit" for="button" class="my-2"
-      >Kérjük vállasszon, milyen vizsgálatra érkezett:</label
+      >Kérjük válasszon az alábbi vizsgálatok közül:</label
     >
     <button
       *ngFor="let room of rooms$ | async"
       (click)="onButtonClick(room)"
-      class="btn btn-primary text my-2 col-3 mx-auto"
+      class="btn btn-primary text my-2 col-3 mx-auto text-center"
       type="button"
     >
       {{ room.megnevezes }}
     </button>
   </form>
-  <div
-    class="container col-4 bg-light text-dark mt-3 mb-5 border rounded-2 p-3 mx-auto"
-  >
+  <div class="col-4 bg-light text-dark my-5 ms-5 p-3 dots">
     <h4 class="py-2 text-secondary">Az Ön sorszáma:</h4>
-    <h1 class="py-2 text-center">003</h1>
-    <h5 class="py-1 text-secondary">Vizsgálat:</h5>
-    <h4 class="pt-1 text-center">Általános orvos</h4>
+    <h1 class="py-2 text-center" style="font-size: 5rem">003</h1>
+
+    <h5 class="py-1 text-secondary">Vizsgálat kódja:</h5>
+    <h4 class="pt-1 text-center">2</h4>
+
     <h5 class="py-1 text-secondary">Az Ön TAJ-száma:</h5>
     <h4 class="pt-1 text-center">000 000 000</h4>
+
     <h5 class="py-1 text-secondary">Érkezés ideje:</h5>
     <h4 class="pt-1 text-center">2023.02.18. 14:08</h4>
+
     <h5 class="py-1 text-secondary">Várakozók száma:</h5>
     <h4 class="pt-1 text-center">7</h4>
   </div>
 </div>
 
-<!--<div *ngIf="sorszamData" class="container col-4 bg-light text-dark">
-  <h1>Az Ön sorszáma: {{ sorszamData.sorszam }}</h1>
-  <h1>Vizsgálat: {{ sorszamData.vizsgalatKod }}</h1>
-  <h1>TAJ {{ sorszamData.taj }}</h1>
-  <h1>Érkezés ideje: {{ sorszamData.erkezesIdeje }}</h1>
-  <h1>Várakozók száma: {{ sorszamData.varakozok }}</h1>
-</div>-->
+<!-- Activate this code when the get request works!!!
+
+    <div *ngIf="sorszamData" class="col-4 bg-light text-dark my-5 ms-5 p-3 dots">
+
+    <h4 class="py-2 text-secondary">Az Ön sorszáma:</h4>
+    <h1 class="py-2 text-center" style="font-size: 5rem">{{ sorszamData.sorszam }}</h1>
+
+    <h5 class="py-1 text-secondary">Vizsgálat kódja:</h5>
+    <h4 class="pt-1 text-center">{{ sorszamData.vizsgalatKod }}</h4>
+
+    <h5 class="py-1 text-secondary">Az Ön TAJ-száma:</h5>
+    <h4 class="pt-1 text-center">{{ sorszamData.taj }}</h4>
+
+    <h5 class="py-1 text-secondary">Érkezés ideje:</h5>
+    <h4 class="pt-1 text-center">{{ sorszamData.erkezesIdeje }}</h4>
+
+    <h5 class="py-1 text-secondary">Várakozók száma:</h5>
+    <h4 class="pt-1 text-center">{{ sorszamData.varakozok }}</h4>
+
+  </div>
+-->
