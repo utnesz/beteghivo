@@ -14,7 +14,7 @@
     <button
       *ngFor="let room of rooms$ | async"
       (click)="onButtonClick(room)"
-      class="btn btn-primary text my-2 col-3 mx-auto text-center"
+      class="btn btn-primary text my-2 col-3 mx-auto text-center shadow-lg"
       type="button"
     >
       {{ room.megnevezes }}
