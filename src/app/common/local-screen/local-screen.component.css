@@ -1,0 +1,21 @@
+.number {
+  animation: pulse 2s infinite;
+  text-shadow: 0px 0px 20px #4e4e4e;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    text-shadow: 0px 0px 20px #929292;
+  }
+
+  50% {
+    transform: scale(0.9);
+    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    transform: scale(1);
+    text-shadow: 0px 0px 20px #929292;
+  }
+}
