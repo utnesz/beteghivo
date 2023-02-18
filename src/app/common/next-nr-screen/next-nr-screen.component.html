@@ -1,5 +1,5 @@
-<div class="container">
-  <form class="container row col-6 mt-5 border rounded-2 p-3">
+<div class="container row col-12 mx-auto">
+  <form class="container row col-6 my-5 border rounded-2 p-3 form-group">
     <label for="taj">TAJ szám:</label>
     <input name="taj" type="text" class="taj rounded my-2" />
     <p class="text-end" style="font-size: 0.8rem">
@@ -18,12 +18,26 @@
       {{ room.megnevezes }}
     </button>
   </form>
+  <div
+    class="container col-4 bg-light text-dark mt-3 mb-5 border rounded-2 p-3 mx-auto"
+  >
+    <h4 class="py-2 text-secondary">Az Ön sorszáma:</h4>
+    <h1 class="py-2 text-center">003</h1>
+    <h5 class="py-1 text-secondary">Vizsgálat:</h5>
+    <h4 class="pt-1 text-center">Általános orvos</h4>
+    <h5 class="py-1 text-secondary">Az Ön TAJ-száma:</h5>
+    <h4 class="pt-1 text-center">000 000 000</h4>
+    <h5 class="py-1 text-secondary">Érkezés ideje:</h5>
+    <h4 class="pt-1 text-center">2023.02.18. 14:08</h4>
+    <h5 class="py-1 text-secondary">Várakozók száma:</h5>
+    <h4 class="pt-1 text-center">7</h4>
+  </div>
 </div>
 
-<div *ngIf="sorszamData" class="container col-4 bg-light text-dark">
+<!--<div *ngIf="sorszamData" class="container col-4 bg-light text-dark">
   <h1>Az Ön sorszáma: {{ sorszamData.sorszam }}</h1>
   <h1>Vizsgálat: {{ sorszamData.vizsgalatKod }}</h1>
   <h1>TAJ {{ sorszamData.taj }}</h1>
   <h1>Érkezés ideje: {{ sorszamData.erkezesIdeje }}</h1>
   <h1>Várakozók száma: {{ sorszamData.varakozok }}</h1>
-</div>
+</div>-->
