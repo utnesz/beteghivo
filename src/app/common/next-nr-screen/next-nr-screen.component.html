@@ -18,11 +18,12 @@
       {{ room.megnevezes }}
     </button>
   </form>
+</div>
 
-  <!--<button class="container" *ngFor="let sorszam of patients$ | async">
-    {{ sorszam.sorszam }}
-    {{ sorszam.vizsgalatKod }}
-    {{ sorszam.taj }}
-    {{ sorszam.varakozok }}
-  </button>-->
+<div *ngIf="sorszamData" class="container col-4 bg-light text-dark">
+  <h1>Az Ön sorszáma: {{ sorszamData.sorszam }}</h1>
+  <h1>Vizsgálat: {{ sorszamData.vizsgalatKod }}</h1>
+  <h1>TAJ {{ sorszamData.taj }}</h1>
+  <h1>Érkezés ideje: {{ sorszamData.erkezesIdeje }}</h1>
+  <h1>Várakozók száma: {{ sorszamData.varakozok }}</h1>
 </div>

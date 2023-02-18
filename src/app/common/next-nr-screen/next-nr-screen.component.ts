@@ -1,8 +1,10 @@
+import { SorszamService } from './../../services/sorszam.service';
 import { Observable } from 'rxjs';
 import { Component, Input, OnInit } from '@angular/core';
 import { SzobaController } from 'src/app/model/szoba-controller';
 import { SzobaService } from 'src/app/services/szoba.service';
 import { SorszamController } from 'src/app/model/sorszam-controller';
+import { Ticket } from 'src/app/model/ticket';
 
 @Component({
   selector: 'app-next-nr-screen',
@@ -12,26 +14,30 @@ import { SorszamController } from 'src/app/model/sorszam-controller';
 export class NextNrScreenComponent implements OnInit {
   rooms$: Observable<SzobaController[]> = this.roomService.getAll();
 
-  patients$: Observable<SorszamController[]> = this.roomService.getSorszam();
+  ticket$: Observable<SorszamController[]> = this.sorszamService.getSorszam();
 
   room: SzobaController[] = [];
 
-  nextNr: SorszamController[] = [];
+  @Input() ticket: Ticket[] = [];
 
-  constructor(private roomService: SzobaService) {}
+  sorszamData: any;
+
+  constructor(
+    private roomService: SzobaService,
+    private sorszamService: SorszamService
+  ) {}
 
   onButtonClick(room: SzobaController) {
     const sorszam = new SorszamController();
 
     sorszam.vizsgalatKod = room.szam.toString();
 
-    this.nextNr = [sorszam];
+    this.sorszamService.post(sorszam).subscribe((result) => {
+      console.log(result);
+      this.sorszamData = result;
+    });
 
     console.log(sorszam);
-
-    this.roomService
-      .post(sorszam)
-      .subscribe(() => (this.patients$ = this.roomService.getSorszam()));
   }
 
   ngOnInit(): void {
