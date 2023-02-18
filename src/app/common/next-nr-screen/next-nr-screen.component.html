@@ -1,11 +1,28 @@
-<div class="container row col-6">
-  <label for="taj">TAJ szám:</label>
-  <input name="taj" type="text" class="taj rounded" />
+<div class="container">
+  <form class="container row col-6 mt-5 border rounded-2 p-3">
+    <label for="taj">TAJ szám:</label>
+    <input name="taj" type="text" class="taj rounded my-2" />
+    <p class="text-end" style="font-size: 0.8rem">
+      (A TAJ-szám megadása nem kötelező)
+    </p>
 
-  <label type="submit" for="button"
-    >Kérjük vállasszon, milyen vizsgálatra érkezett:</label
-  >
-  <button *ngFor="let room of rooms$ | async" class="btn btn-primary text my-2">
-    {{ room.megnevezes }}
-  </button>
+    <label type="submit" for="button" class="my-2"
+      >Kérjük vállasszon, milyen vizsgálatra érkezett:</label
+    >
+    <button
+      *ngFor="let room of rooms$ | async"
+      (click)="onButtonClick(room)"
+      class="btn btn-primary text my-2 col-3 mx-auto"
+      type="button"
+    >
+      {{ room.megnevezes }}
+    </button>
+  </form>
+
+  <!--<button class="container" *ngFor="let sorszam of patients$ | async">
+    {{ sorszam.sorszam }}
+    {{ sorszam.vizsgalatKod }}
+    {{ sorszam.taj }}
+    {{ sorszam.varakozok }}
+  </button>-->
 </div>
