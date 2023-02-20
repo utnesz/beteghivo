@@ -12,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './next-nr-screen.component.html',
   styleUrls: ['./next-nr-screen.component.css'],
 })
-export class NextNrScreenComponent implements OnInit {
+export class NextNrScreenComponent {
   rooms$: Observable<SzobaController[]> = this.roomService.getAll();
 
   ticket$: Observable<SorszamController[]> = this.sorszamService.getSorszam();
@@ -32,23 +32,13 @@ export class NextNrScreenComponent implements OnInit {
   onButtonClick(room: SzobaController) {
     const sorszam = new SorszamController();
 
-    const url = 'https://felveteli.tigra.hu/feladat/frontend1/sorszam';
-    const body = { sorszam };
-    const headers = { 'Content-Type': 'application/json' };
-
     sorszam.vizsgalatKod = room.szam.toString();
 
-    this.http.post<SorszamController>(url, body, { headers }).subscribe(
-      (response) => {
-        this.sorszam = response;
-        console.log('Response:', response);
-      },
-      (error) => console.log('Error:', error)
-    );
-    console.log(sorszam);
-  }
+    this.sorszamService.post(sorszam).subscribe((result) => {
+      console.log(result);
+      this.sorszam = result;
+    });
 
-  ngOnInit(): void {
-    this.rooms$.subscribe((room) => (this.room = room));
+    console.log(sorszam);
   }
 }
