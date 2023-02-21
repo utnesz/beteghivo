@@ -1,20 +1,20 @@
-import { Sorszam } from './../model/sorszam';
 import { HttpClient } from '@angular/common/http';
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Vizsgalat } from '../model/vizsgalat';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SorszamService {
-  apiURL: string = environment.apiUrl;
+  apiURL: string = 'https://felveteli.tigra.hu/feladat/frontend1/';
 
   sorszam: string = 'sorszam';
 
   constructor(private http: HttpClient) {}
 
-  getSorszam(sorszam: Sorszam): Observable<Sorszam> {
-    return this.http.post<Sorszam>(`${this.apiURL}${this.sorszam}`, sorszam);
+  getSorszam(exam: Vizsgalat): Observable<Vizsgalat> {
+    return this.http.post<Vizsgalat>(`${this.apiURL}${this.sorszam}`, exam);
   }
 }

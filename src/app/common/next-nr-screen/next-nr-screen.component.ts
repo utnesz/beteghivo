@@ -4,7 +4,7 @@ import { ExamService } from './../../services/exam.service';
 import { Observable } from 'rxjs';
 import { Component, Input, OnInit } from '@angular/core';
 import { SorszamService } from 'src/app/services/sorszam.service';
-import { HttpClient } from '@angular/common/http';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-next-nr-screen',
@@ -14,23 +14,19 @@ import { HttpClient } from '@angular/common/http';
 export class NextNrScreenComponent {
   exams$: Observable<Vizsgalat[]> = this.examService.getAll();
 
-  exam: Vizsgalat[] = [];
+  exam: Vizsgalat = new Vizsgalat();
 
   sorszam: Sorszam = new Sorszam();
 
   constructor(
     private examService: ExamService,
-    private sorszamService: SorszamService,
-    private http: HttpClient
+    private sorszamService: SorszamService
   ) {}
 
   ngOninit(): void {}
 
-  onButtonClick(exam: Vizsgalat, sorszam: Sorszam): void {
-    //this.sorszam.vizsgalatKod = exam.kod;
-
-    this.sorszamService
-      .getSorszam(sorszam)
-      .subscribe((sorszam) => console.log(sorszam));
+  onButtonClick(exam: Vizsgalat): void {
+    this.sorszamService.getSorszam(exam).subscribe((exam) => console.log(exam));
+    console.log(exam);
   }
 }

@@ -26,8 +26,8 @@
       >
       <div class="container d-flex row justify-content-evenly mx-auto">
         <button
+          (click)="onButtonClick(exam)"
           *ngFor="let exam of exams$ | async"
-          (click)="onButtonClick(exam, sorszam)"
           class="btn btn-primary btn-lg text my-2 col-3 mx-3 text-center shadow-lg"
           type="button"
         >
