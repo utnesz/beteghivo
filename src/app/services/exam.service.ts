@@ -1,4 +1,3 @@
-import { Sorszam } from './../model/sorszam';
 import { Vizsgalat } from '../model/vizsgalat';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
