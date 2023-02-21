@@ -1,4 +1,4 @@
-export class SzobaController {
+export class Szobak {
   szam: number = 0;
   megnevezes: string = '';
 }

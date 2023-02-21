@@ -1,10 +1,10 @@
-import { SorszamController } from './../../model/sorszam-controller';
+import { Sorszam } from './../../model/sorszam';
+import { ExamService } from './../../services/exam.service';
+import { Vizsgalat } from 'src/app/model/vizsgalat';
 import { SorszamService } from './../../services/sorszam.service';
 import { Observable } from 'rxjs';
 import { Component, Input, OnInit } from '@angular/core';
-import { SzobaController } from 'src/app/model/szoba-controller';
-import { SzobaService } from 'src/app/services/szoba.service';
-import { Ticket } from 'src/app/model/ticket';
+import { Szobak } from 'src/app/model/szobak';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -13,32 +13,18 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./next-nr-screen.component.css'],
 })
 export class NextNrScreenComponent {
-  rooms$: Observable<SzobaController[]> = this.roomService.getAll();
+  exams$: Observable<Vizsgalat[]> = this.examService.getAll();
 
-  ticket$: Observable<SorszamController[]> = this.sorszamService.getSorszam();
+  exam: Vizsgalat = new Vizsgalat();
 
-  room: SzobaController[] = [];
+  sorszam: Sorszam = new Sorszam();
 
-  @Input() ticket: Ticket[] = [];
+  constructor(private examService: ExamService) {}
 
-  sorszam: SorszamController = new SorszamController();
-
-  constructor(
-    private roomService: SzobaService,
-    private sorszamService: SorszamService,
-    private http: HttpClient
-  ) {}
-
-  onButtonClick(room: SzobaController) {
-    const sorszam = new SorszamController();
-
-    sorszam.vizsgalatKod = room.szam.toString();
-
-    this.sorszamService.post(sorszam).subscribe((result) => {
-      console.log(result);
-      this.sorszam = result;
+  onButtonClick(sorszam: Vizsgalat) {
+    this.examService.post(sorszam).subscribe((sorszam) => {
+      console.log(sorszam);
+      this.sorszam = sorszam;
     });
-
-    console.log(sorszam);
   }
 }

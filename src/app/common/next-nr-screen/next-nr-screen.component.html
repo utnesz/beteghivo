@@ -26,12 +26,12 @@
       >
       <div class="container d-flex row justify-content-evenly mx-auto">
         <button
-          *ngFor="let room of rooms$ | async"
-          (click)="onButtonClick(room)"
+          *ngFor="let exam of exams$ | async"
+          (click)="onButtonClick(exam)"
           class="btn btn-primary btn-lg text my-2 col-3 mx-3 text-center shadow-lg"
           type="button"
         >
-          {{ room.megnevezes }}
+          {{ exam.megnevezes }}
         </button>
       </div>
     </form>
