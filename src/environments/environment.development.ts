@@ -1,4 +1,4 @@
 export const environment = {
-  production: true,
-  apiUrl: 'https://felveteli.tigra.hu/feladat/frontend1/',
+  production: false,
+  apiUrl: 'http://localhost:4200/api/',
 };

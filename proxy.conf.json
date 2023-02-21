@@ -1,0 +1,7 @@
+{
+    "/api": {
+      "target": "https://felveteli.tigra.hu/feladat/frontend1",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }
