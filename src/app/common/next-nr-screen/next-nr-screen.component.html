@@ -24,14 +24,16 @@
       <label type="submit" for="button" class="my-2"
         >Kérjük válasszon az alábbi vizsgálatok közül:</label
       >
-      <button
-        *ngFor="let room of rooms$ | async"
-        (click)="onButtonClick(room)"
-        class="btn btn-primary btn-lg text my-2 col-3 mx-auto text-center shadow-lg"
-        type="button"
-      >
-        {{ room.megnevezes }}
-      </button>
+      <div class="container d-flex row justify-content-evenly mx-auto">
+        <button
+          *ngFor="let room of rooms$ | async"
+          (click)="onButtonClick(room)"
+          class="btn btn-primary btn-lg text my-2 col-3 mx-3 text-center shadow-lg"
+          type="button"
+        >
+          {{ room.megnevezes }}
+        </button>
+      </div>
     </form>
 
     <div class="col-4 bg-light text-dark my-5 mx-auto p-3 dots">

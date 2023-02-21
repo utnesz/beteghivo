@@ -8,9 +8,9 @@ import { SzobaController } from '../model/szoba-controller';
   providedIn: 'root',
 })
 export class SzobaService {
-  apiURL: string = environment.apiUrl;
+  apiURL: string = 'https://felveteli.tigra.hu/feladat/frontend1/';
 
-  rooms: string = 'szobak';
+  rooms: string = 'vizsgalat';
 
   constructor(private http: HttpClient) {}
 
