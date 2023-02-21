@@ -1,10 +1,9 @@
+import { Vizsgalat } from './../../model/vizsgalat';
 import { Sorszam } from './../../model/sorszam';
 import { ExamService } from './../../services/exam.service';
-import { Vizsgalat } from 'src/app/model/vizsgalat';
-import { SorszamService } from './../../services/sorszam.service';
 import { Observable } from 'rxjs';
 import { Component, Input, OnInit } from '@angular/core';
-import { Szobak } from 'src/app/model/szobak';
+import { SorszamService } from 'src/app/services/sorszam.service';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -15,16 +14,23 @@ import { HttpClient } from '@angular/common/http';
 export class NextNrScreenComponent {
   exams$: Observable<Vizsgalat[]> = this.examService.getAll();
 
-  exam: Vizsgalat = new Vizsgalat();
+  exam: Vizsgalat[] = [];
 
   sorszam: Sorszam = new Sorszam();
 
-  constructor(private examService: ExamService) {}
+  constructor(
+    private examService: ExamService,
+    private sorszamService: SorszamService,
+    private http: HttpClient
+  ) {}
 
-  onButtonClick(sorszam: Vizsgalat) {
-    this.examService.post(sorszam).subscribe((sorszam) => {
-      console.log(sorszam);
-      this.sorszam = sorszam;
-    });
+  ngOninit(): void {}
+
+  onButtonClick(exam: Vizsgalat, sorszam: Sorszam): void {
+    //this.sorszam.vizsgalatKod = exam.kod;
+
+    this.sorszamService
+      .getSorszam(sorszam)
+      .subscribe((sorszam) => console.log(sorszam));
   }
 }

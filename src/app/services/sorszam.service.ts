@@ -14,11 +14,7 @@ export class SorszamService {
 
   constructor(private http: HttpClient) {}
 
-  getSorszam(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiURL}${this.sorszam}`);
-  }
-
-  post(sorszam: Sorszam): Observable<Sorszam> {
+  getSorszam(sorszam: Sorszam): Observable<Sorszam> {
     return this.http.post<Sorszam>(`${this.apiURL}${this.sorszam}`, sorszam);
   }
 }
