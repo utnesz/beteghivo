@@ -8,7 +8,7 @@ import { Vizsgalat } from '../model/vizsgalat';
   providedIn: 'root',
 })
 export class SorszamService {
-  apiURL: string = 'https://felveteli.tigra.hu/feladat/frontend1/';
+  apiURL: string = environment.apiUrl;
 
   sorszam: string = 'sorszam';
 

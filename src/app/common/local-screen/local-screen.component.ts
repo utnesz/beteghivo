@@ -23,6 +23,8 @@ export class LocalScreenComponent implements OnInit {
     );
   }
 
+  // x = szoba száma;
+
   ngOnInit(): void {
     setInterval(() => {
       this.behivasList$.subscribe((behivas) => (this.behivas = behivas));

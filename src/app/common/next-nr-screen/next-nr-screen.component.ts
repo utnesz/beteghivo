@@ -26,7 +26,7 @@ export class NextNrScreenComponent {
   ngOninit(): void {}
 
   onButtonClick(exam: Vizsgalat): void {
-    this.sorszamService.getSorszam(exam).subscribe((exam) => console.log(exam));
+    this.sorszamService.getSorszam(exam).subscribe((exam) => exam);
     console.log(exam);
   }
 }
